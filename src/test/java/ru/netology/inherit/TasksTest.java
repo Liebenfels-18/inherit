@@ -57,7 +57,17 @@ public class TasksTest {
         todos.add(new SimpleTask(1, "Купить молоко"));
         todos.add(new Epic(2, new String[]{"Сделать домашнее задание"}));
         Task[] expected = {new SimpleTask(1, "Купить молоко")};
-        Task[] actual = todos.search("молоко");
+        Task[] actual = todos.search("Купить молоко");
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturnArrayOfTasksWhenSearchingWithMultiplyMatch() {
+        Todos todos = new Todos();
+        todos.add(new SimpleTask(1, "Покормить собаку"));
+        todos.add(new Epic(2, new String[]{"Выгулять собаку"}));
+        Task[] expected = {new SimpleTask(1, "Покормить собаку"), new Epic(2, new String[]{"Выгулять собаку"})};
+        Task[] actual = todos.search("собаку");
         Assertions.assertArrayEquals(expected, actual);
     }
 

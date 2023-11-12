@@ -30,8 +30,4 @@ public class TodosTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void searchTest() {
-
-    }
 }
